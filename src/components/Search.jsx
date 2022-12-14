@@ -36,12 +36,11 @@ const Search = () => {
         const combinedId = currentUser.uid > user.uid ? currentUser.uid + user.uid : user.uid + currentUser.uid;
         try{
             const res = await getDoc(doc(db, "chats", combinedId));
-
             if(!res.exists()){
                 // create a chat in chats collection
                 await setDoc(doc(db, "chats", combinedId), { messages: []})
-
-                await updateDoc(doc(db, "userchats", currentUser.uid), {
+                
+                await updateDoc(doc(db, "userChats", currentUser.uid), {
                     [combinedId+".userInfo"]: {
                         uid: user.uid,
                         displayName: user.displayName,
@@ -49,8 +48,8 @@ const Search = () => {
                     },
                     [combinedId+".date"]: serverTimestamp()
                 });
-
-                await updateDoc(doc(db, "userchats", user.uid), {
+                
+                await updateDoc(doc(db, "userChats", user.uid), {
                     [combinedId+".userInfo"]: {
                         uid: currentUser.uid,
                         displayName: currentUser.displayName,
@@ -64,13 +63,20 @@ const Search = () => {
 
         }
 
-        // create user chats
+        setUser(null);
+        setUsername("");
     }
 
     return (
         <div className="search">
             <div className="searchForm">
-                <input type="text" placeholder="Find a user" onKeyDown={handleKey} onChange={(e) => setUsername(e.target.value)}/>
+                <input 
+                    type="text" 
+                    placeholder="Find a user" 
+                    onKeyDown={handleKey} 
+                    onChange={(e) => setUsername(e.target.value)}
+                    value={username}
+                />
             </div>
             {err && <span>User not found!</span>}
             {user && <div className="userChat" onClick = {handleSelect}>
