@@ -1,6 +1,7 @@
 import { doc, onSnapshot } from 'firebase/firestore';
 import React, { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../context/AuthContext';
+import { ChatContext } from '../context/ChatContext';
 import { db } from '../firebase';
 
 const Chats = () => {
@@ -8,6 +9,7 @@ const Chats = () => {
     const [chats, setChats] = useState([]);
 
     const {currentUser} = useContext(AuthContext);
+    const {dispatch} = useContext(ChatContext);
 
     useEffect(() => {
         const getChats = () => {
@@ -23,31 +25,21 @@ const Chats = () => {
         currentUser.uid && getChats();
     },[currentUser.uid])
 
-    console.log(Object.entries(chats));
+    const handleSelect = (u) => {
+        dispatch({type:"CHANGE_USER", payload:u})
+    }
 
     return (
         <div className="chats">
-            <div className="userChat">
-                <img src="https://i0.wp.com/calmatters.org/wp-content/uploads/2022/05/Senior-Grads-Zintan-CJN-CM-02.jpg?fit=1200%2C800&ssl=1" alt=""/>
-                <div className="userChatInfo">
-                    <span>Jane</span>
-                    <p>Hello</p>
+            {Object.entries(chats)?.map((chat) => (
+                <div className="userChat" key={chat[0]} onClick={()=>handleSelect(chat[1].userInfo)}>
+                    <img src={chat[1].userInfo.photoURL} alt=""/>
+                    <div className="userChatInfo">
+                        <span>{chat[1].userInfo.displayName}</span>
+                        <p>{chat[1].userInfo.lastMessage?.text}</p>
+                    </div>
                 </div>
-            </div>
-            <div className="userChat">
-                <img src="https://i0.wp.com/calmatters.org/wp-content/uploads/2022/05/Senior-Grads-Zintan-CJN-CM-02.jpg?fit=1200%2C800&ssl=1" alt=""/>
-                <div className="userChatInfo">
-                    <span>Jane</span>
-                    <p>Hello</p>
-                </div>
-            </div>
-            <div className="userChat">
-                <img src="https://i0.wp.com/calmatters.org/wp-content/uploads/2022/05/Senior-Grads-Zintan-CJN-CM-02.jpg?fit=1200%2C800&ssl=1" alt=""/>
-                <div className="userChatInfo">
-                    <span>Jane</span>
-                    <p>Hello</p>
-                </div>
-            </div>
+            ))}
         </div>
     )
 }
