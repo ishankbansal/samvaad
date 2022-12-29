@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Img from "../img/img.png"
 import Attach from "../img/attach.png"
 import { AuthContext } from '../context/AuthContext';
@@ -70,6 +70,25 @@ const Input = () => {
         setText("");
         setImg(null);
     }
+
+    useEffect(() => {
+        const keyDownHandler = (event) => {
+          console.log('User pressed: ', event.key);
+          console.log(text);
+    
+          if (event.key === 'Enter') {
+            event.preventDefault();
+            handleSend();
+            setText("");
+          }
+        };
+    
+        document.addEventListener('keydown', keyDownHandler);
+    
+        return () => {
+          document.removeEventListener('keydown', keyDownHandler);
+        };
+      }, []);    
 
     return (
         <div className="input">
