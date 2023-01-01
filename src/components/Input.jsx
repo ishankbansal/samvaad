@@ -66,21 +66,19 @@ const Input = () => {
             },
             [data.chatId+".date"]: serverTimestamp()
         })
-
+        
+        // console.log(text);
         setText("");
         setImg(null);
     }
 
     useEffect(() => {
         const keyDownHandler = (event) => {
-          console.log('User pressed: ', event.key);
-          console.log(text);
-    
-          if (event.key === 'Enter') {
-            event.preventDefault();
-            handleSend();
-            setText("");
-          }
+          
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                document.querySelector(".send-button").click();
+            }
         };
     
         document.addEventListener('keydown', keyDownHandler);
@@ -104,7 +102,10 @@ const Input = () => {
                 <label htmlFor = "file">
                     <img src={Img} />
                 </label>
-                <button onClick={handleSend}>Send</button>
+                <button 
+                disabled={!text || text.trim().length === 0}
+                className="send-button"
+                onClick={handleSend}>Send</button>
             </div>
         </div>
     )
