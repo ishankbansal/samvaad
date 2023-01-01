@@ -10,13 +10,15 @@ import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 
 const Input = () => {
 
-    const [text, setText] = useState("");
+    const [xtext, setText] = useState("");
     const [img, setImg] = useState("");
 
     const {currentUser} = useContext(AuthContext);
     const {data} = useContext(ChatContext);
-
+    
     const handleSend = async() => {
+        const text = xtext.slice();
+        setText("");
         if(img){
             const storageRef = ref(storage, uuid());
             
@@ -68,7 +70,6 @@ const Input = () => {
         })
         
         // console.log(text);
-        setText("");
         setImg(null);
     }
 
@@ -94,7 +95,7 @@ const Input = () => {
                 type="text" 
                 placeholder="Type Something..." 
                 onChange={e=>setText(e.target.value)}
-                value={text}
+                value={xtext}
             />
             <div className="send">
                 <img src={Attach}/>
@@ -103,7 +104,7 @@ const Input = () => {
                     <img src={Img} />
                 </label>
                 <button 
-                disabled={!text || text.trim().length === 0}
+                disabled={!xtext || xtext.trim().length === 0}
                 className="send-button"
                 onClick={handleSend}>Send</button>
             </div>
