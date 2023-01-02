@@ -3,7 +3,7 @@
 }
 
 body{
-    font-family: Lato;
+    font-family: 'Roboto Slab', serif;
 }
 
 .formContainer{
@@ -135,6 +135,8 @@ body{
 
                 .searchForm{
                     padding: 10px;
+                    display: flex;
+                    justify-content: space-between;
                     input{
                         background-color: transparent;
                         border: none;
@@ -144,6 +146,11 @@ body{
                         &::placeholder{
                             color: lightgray;
                         }
+                    }
+                    .user-list-image{
+                        width: 30px;
+                        height: 30px;
+                        cursor: pointer;
                     }
                 }
             }
