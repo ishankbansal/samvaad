@@ -2,11 +2,14 @@ import React, { useContext, useState } from 'react'
 import { collection, doc, getDoc, getDocs, query, serverTimestamp, setDoc, updateDoc, where } from "firebase/firestore";
 import { db } from "../firebase"
 import { AuthContext } from '../context/AuthContext';
+import AllUser from './AllUser';
+import userList from "../img/list.png"
 
 const Search = () => {
     const [username, setUsername] = useState("");
     const [user, setUser] = useState(null);
     const [err, setErr] = useState(false);
+    const [open, setOpen] = useState(false);
 
     const { currentUser } = useContext(AuthContext);
 
@@ -77,7 +80,9 @@ const Search = () => {
                     onChange={(e) => setUsername(e.target.value)}
                     value={username}
                 />
+                <img className="user-list-image" src={userList} onClick={() => setOpen(!open)}/>
             </div>
+            {open && <AllUser/>}
             {err && <span>User not found!</span>}
             {user && <div className="userChat" onClick = {handleSelect}>
                 <img src={user.photoURL} alt=""/>
