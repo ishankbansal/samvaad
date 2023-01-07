@@ -80,9 +80,9 @@ const Search = () => {
                     onChange={(e) => setUsername(e.target.value)}
                     value={username}
                 />
-                <img className="user-list-image" src={userList} onClick={() => setOpen(!open)}/>
+                {/* <img className="user-list-image" src={userList} onClick={() => setOpen(!open)}/> */}
             </div>
-            {open && <AllUser/>}
+            {/* {open && <AllUser/>} */}
             {err && <span>User not found!</span>}
             {user && <div className="userChat" onClick = {handleSelect}>
                 <img src={user.photoURL} alt=""/>
