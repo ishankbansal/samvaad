@@ -36,7 +36,8 @@ const Chats = () => {
                     <img src={chat[1].userInfo.photoURL} alt=""/>
                     <div className="userChatInfo">
                         <span>{chat[1].userInfo.displayName}</span>
-                        <p>{chat[1].lastMessage?.text}</p>
+                        {currentUser.uid === chat[1].userInfo.uid && <span>(you)</span>}
+                        <p className="lastMessage">{chat[1].lastMessage?.text}</p>
                     </div>
                 </div>
             ))}
