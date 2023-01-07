@@ -11,19 +11,22 @@ const Chat = () => {
     const {data} = useContext(ChatContext);
 
     return (
-        <div className="chat">
-            <div className="chatInfo">
-                <span>{data.user?.displayName}</span>
-                <div className="chatIcons">
+      <div className="chat">
+        <div className="chatInfo">
+          <div className="container">
+            <img src={data.user?.photoURL} />
+            <span>{data.user?.displayName}</span>
+          </div>
+          {/* <div className="chatIcons">
                     <img src={Cam} />
                     <img src={Add} />
                     <img src={More} />
-                </div>
-            </div>
-            <Messages/>
-            <Input/>
+                </div> */}
         </div>
-    )
+        <Messages />
+        <Input />
+      </div>
+    );
 }
 
 export default Chat
