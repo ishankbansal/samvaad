@@ -29,6 +29,11 @@ const Chats = () => {
         dispatch({type:"CHANGE_USER", payload:u})
     }
 
+    const handleRemove = (event) => {
+        event.stopPropagation();
+        dispatch({type:"REMOVE_USER"});
+    }
+
     return (
         <div className="chats">
             {Object.entries(chats)?.sort((a,b)=>b[1].date - a[1].date).map((chat) => (
@@ -39,6 +44,7 @@ const Chats = () => {
                         {currentUser.uid === chat[1].userInfo.uid && <span>(you)</span>}
                         <p className="lastMessage">{chat[1].lastMessage?.text}</p>
                     </div>
+                    <span className="cross" onClick={handleRemove}>X</span>
                 </div>
             ))}
         </div>
