@@ -8,7 +8,7 @@ import { ChatContext } from "../context/ChatContext";
 
 const Chat = () => {
   const { data } = useContext(ChatContext);
-  console.log(Object.keys(data.user).length);
+  // console.log(Object.keys(data.user).length);
   return (
     <div className="chat">
       {Object.keys(data.user).length === 0 && (
