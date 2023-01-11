@@ -19,6 +19,10 @@ const Register = () => {
         const password = e.target[2].value;
         const file = e.target[3].files[0];
 
+        // if(file){
+        //     file = Add;
+        // }
+
         try{
             console.log("exe");
             const res = await createUserWithEmailAndPassword(auth, email, password)
@@ -68,10 +72,10 @@ const Register = () => {
                 <span className="logo">Fly Chat</span>
                 <span className="title">Register</span>
                 <form onSubmit = {handleSubmit}>
-                    <input type="text" placeholder="display name"/>
-                    <input type="email" placeholder="email"/>
-                    <input type="password" placeholder="password"/>
-                    <input style = {{display: "none"}} type="file" id="file"/>
+                    <input type="text" placeholder="display name" required/>
+                    <input type="email" placeholder="email" required/>
+                    <input type="password" placeholder="password" required/>
+                    <input style = {{display: "none"}} type="file" id="file" required/>
                     <label htmlFor="file">
                         <img src = {Add} alt = ""/>
                         <span>Add an Avatar</span>
