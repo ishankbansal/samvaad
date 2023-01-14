@@ -5,6 +5,7 @@
 
 body {
   font-family: "Roboto Slab", serif;
+  overflow: hidden;
 }
 
 .formContainer {
@@ -91,11 +92,16 @@ body {
     height: 100%;
     width: 100%;
     display: flex;
-    overflow: hidden;
 
     .sidebar {
       flex: 1;
       background-color: #3e3c61;
+
+      .chats {
+        overflow: scroll;
+        height: calc(100% - 119px);
+        // bottom: 0;
+      }
       .navbar {
         display: flex;
         align-items: center;
@@ -167,17 +173,17 @@ body {
         gap: 10px;
         color: white;
         cursor: pointer;
-        position:relative;
+        position: relative;
 
         &:hover {
           background-color: #2f2d52;
-          .cross{
+          .cross {
             visibility: visible;
             right: 0%;
             position: absolute;
             padding: 24px;
-            &:hover{
-              background-color: #3F3B6C;
+            &:hover {
+              background-color: #3f3b6c;
             }
           }
         }
@@ -188,7 +194,7 @@ body {
           object-fit: cover;
         }
 
-        .cross{
+        .cross {
           visibility: hidden;
         }
       }
