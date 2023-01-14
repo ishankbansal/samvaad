@@ -70,6 +70,11 @@ const Search = () => {
         setUsername("");
     }
 
+    const removeUser = (event) => {
+        event.stopPropagation();
+        setUser(null);
+    }
+
     return (
         <div className="search">
             <div className="searchForm">
@@ -80,15 +85,16 @@ const Search = () => {
                     onChange={(e) => setUsername(e.target.value)}
                     value={username}
                 />
-                {/* <img className="user-list-image" src={userList} onClick={() => setOpen(!open)}/> */}
+                <img className="user-list-image" src={userList} onClick={() => setOpen(!open)}/>
             </div>
-            {/* {open && <AllUser/>} */}
+            {open && <AllUser/>}
             {err && <span>User not found!</span>}
             {user && <div className="userChat" onClick = {handleSelect}>
                 <img src={user.photoURL} alt=""/>
                 <div className="userChatInfo">
                     <span>{user.displayName}</span>
                 </div>
+                <span onClick={removeUser} className="cross">X</span>
             </div>}
         </div>
     )
