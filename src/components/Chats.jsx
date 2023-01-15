@@ -31,15 +31,15 @@ const Chats = () => {
     dispatch({ type: "CHANGE_USER", payload: u });
   };
 
-  const handleRemove = (event, key) => {
-    event.stopPropagation();
-    setChats(
-      chats.filter((item) => {
-        return item[0] != key;
-      })
-    );
-    dispatch({ type: "REMOVE_USER" });
-  };
+//   const handleRemove = (event, key) => {
+//     event.stopPropagation();
+//     setChats(
+//       chats.filter((item) => {
+//         return item[0] != key;
+//       })
+//     );
+//     dispatch({ type: "REMOVE_USER" });
+//   };
 
   return (
     <div className="chats">
@@ -57,9 +57,9 @@ const Chats = () => {
               {currentUser.uid === chat[1].userInfo.uid && <span>(you)</span>}
               <p className="lastMessage">{chat[1].lastMessage?.text}</p>
             </div>
-            <span className="cross" onClick={(e) => handleRemove(e, chat[0])}>
+            {/* <span className="cross" onClick={(e) => handleRemove(e, chat[0])}>
               X
-            </span>
+            </span> */}
           </div>
         ))}
     </div>
