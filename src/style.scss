@@ -2,7 +2,9 @@
   margin: 0;
   padding: 0;
 }
-
+html{
+  scroll-behavior: smooth;
+}
 body {
   font-family: "Roboto Slab", serif;
   overflow: hidden;
@@ -102,6 +104,9 @@ body {
         height: calc(100% - 119px);
         // bottom: 0;
       }
+      .chats::-webkit-scrollbar {
+        display: none;
+      }
       .navbar {
         display: flex;
         align-items: center;
@@ -143,10 +148,26 @@ body {
       .search {
         border-bottom: 1px solid gray;
 
+        .list {
+          position: absolute;
+          border: 2px solid black;
+          overflow: scroll;
+          height: 200px;
+          width: 30%;
+          left: 0;
+        }
+
+        .list::-webkit-scrollbar {
+          display: none;
+        }
+
         .searchForm {
           padding: 10px;
           display: flex;
           justify-content: space-between;
+          top: 0;
+          position: sticky;
+          border-bottom: 1px solid gray;
           input {
             background-color: transparent;
             border: none;
@@ -163,6 +184,11 @@ body {
             cursor: pointer;
             filter: brightness(0) invert(1);
           }
+        }
+
+        .user-list{
+          max-height: 200px;
+          overflow: scroll;
         }
       }
 
@@ -311,6 +337,10 @@ body {
             }
           }
         }
+      }
+
+      .messages::-webkit-scrollbar {
+        display: none;
       }
 
       .input {
