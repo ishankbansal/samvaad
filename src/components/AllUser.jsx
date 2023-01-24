@@ -26,7 +26,7 @@ const AllUser = () => {
   }, []);
 
   return (
-    <div>
+    <div className="user-list" /*onMouseOver={hover}*/>
       {allUsers.map((user) => (
         <div key={user.key} className="userChat">
           <img src={user.photoURL} alt="" />
