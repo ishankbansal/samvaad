@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Cam from "../img/cam.png";
 import Add from "../img/add.png";
-import More from "../img/more.png";
+import chatBg from "../img/defaultChatBG.png";
 import Messages from "./Messages";
 import Input from "./Input";
 import { ChatContext } from "../context/ChatContext";
@@ -12,7 +12,10 @@ const Chat = () => {
   return (
     <div className="chat">
       {Object.keys(data.user).length === 0 && (
-        <div>Choose a user from your chat section or search for a user :)</div>
+        <div className="default-screen">
+          {/* Choose a user from your chat section or search for a user :) */}
+          <img src={chatBg} />
+        </div>
       )}
 
       {Object.keys(data.user).length !== 0 && (
