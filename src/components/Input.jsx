@@ -13,6 +13,7 @@ import {
 import { db, storage } from "../firebase";
 import { v4 as uuid } from "uuid";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import sendIcon from "../img/sendIcon.png";
 
 const Input = () => {
   const [messageText, setText] = useState("");
@@ -102,7 +103,7 @@ const Input = () => {
         value={messageText}
       />
       <div className="send">
-        <img src={Attach} />
+        {/* <img src={Attach} />
         <input
           type="file"
           style={{ display: "none" }}
@@ -111,13 +112,13 @@ const Input = () => {
         />
         <label htmlFor="file">
           <img src={Img} />
-        </label>
+        </label> */}
         <button
           disabled={!messageText || messageText.trim().length === 0}
           className="send-button"
           onClick={handleSend}
         >
-          Send
+          <img src={sendIcon} alt="" />
         </button>
       </div>
     </div>
