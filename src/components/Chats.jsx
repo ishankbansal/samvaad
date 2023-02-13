@@ -31,15 +31,15 @@ const Chats = () => {
     dispatch({ type: "CHANGE_USER", payload: u });
   };
 
-//   const handleRemove = (event, key) => {
-//     event.stopPropagation();
-//     setChats(
-//       chats.filter((item) => {
-//         return item[0] != key;
-//       })
-//     );
-//     dispatch({ type: "REMOVE_USER" });
-//   };
+  //   const handleRemove = (event, key) => {
+  //     event.stopPropagation();
+  //     setChats(
+  //       chats.filter((item) => {
+  //         return item[0] != key;
+  //       })
+  //     );
+  //     dispatch({ type: "REMOVE_USER" });
+  //   };
 
   return (
     <div className="chats">
@@ -54,7 +54,11 @@ const Chats = () => {
             <img src={chat[1].userInfo.photoURL} alt="" />
             <div className="userChatInfo">
               <span>{chat[1].userInfo.displayName}</span>
-              {currentUser.uid === chat[1].userInfo.uid && <span>(you)</span>}
+              {currentUser.uid === chat[1].userInfo.uid && (
+                <span className="you">
+                  &nbsp;&nbsp;&nbsp;&nbsp;You
+                </span>
+              )}
               <p className="lastMessage">{chat[1].lastMessage?.text}</p>
             </div>
             {/* <span className="cross" onClick={(e) => handleRemove(e, chat[0])}>
