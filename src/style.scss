@@ -75,6 +75,7 @@ body {
         img {
           width: 32px;
         }
+        cursor: pointer;
       }
     }
 
@@ -248,6 +249,12 @@ body {
           font-size: 14px;
           color: lightgray;
         }
+
+        .you{
+          font-size: 0.75em;
+          font-weight:lighter;
+          color: rgb(155, 155, 155);
+        }
       }
     }
     .chat {
@@ -379,6 +386,7 @@ body {
         height: 50px;
         background-color: white;
         padding: 10px;
+        padding-right: 0 !important;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -406,12 +414,29 @@ body {
           }
 
           button {
-            border: none;
-            padding: 10px 15px;
-            color: white;
-            background-color: #8da4f1;
+            // border: none;
+            // padding: 10px 20px;
+            // color: white;
+            // background-color: #8da4f1;
             cursor: pointer;
+            // width: 0;
+            // height: 0;
+            // border-top: 20px solid white;
+            // border-bottom: 20px solid white;
+            // border-left: 45px solid #8da4f1;
+            // border-right: none;
+            background: none;
+            border: none;
+            right: 0;
+            img{
+              width: 40%;
+              height: 40%;
+            }
           }
+
+          // button:active{
+          //   border-left: 45px solid #53608a;
+          // }
         }
       }
     }
