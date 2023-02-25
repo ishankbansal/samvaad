@@ -25,20 +25,22 @@ const Login = () => {
     }
 
     return (
-        <div className="formContainer">
-            <div className="formWrapper">
-                <span className="logo">Fly Chat</span>
-                <span className="title">Login</span>
-                <form onSubmit={handleSubmit}>
-                    <input type="email" placeholder="email"/>
-                    <input type="password" placeholder="password"/>
-                    <button>Sign In</button>
-                    {err && <span>Something went wrong</span>}
-                </form>
-                <p>You don't have a account? <Link to = "/register">Register</Link></p>
-            </div>
+      <div className="formContainer">
+        <div className="formWrapper">
+          <span className="logo">samवाद</span>
+          <span className="title">Login</span>
+          <form onSubmit={handleSubmit}>
+            <input type="email" placeholder="email" />
+            <input type="password" placeholder="password" />
+            <button>Sign In</button>
+            {err && <span>Something went wrong</span>}
+          </form>
+          <p>
+            You don't have a account? <Link to="/register">Register</Link>
+          </p>
         </div>
-    )
+      </div>
+    );
 }
 
 export default Login
