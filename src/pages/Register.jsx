@@ -83,7 +83,7 @@ const Register = () => {
   return (
     <div className="formContainer">
       <div className="formWrapper">
-        <span className="logo">Fly Chat</span>
+        <span className="logo">samवाद</span>
         <span className="title">Register</span>
         <form onSubmit={handleSubmit}>
           <input type="text" placeholder="display name" required />
@@ -94,7 +94,9 @@ const Register = () => {
             type="file"
             id="file"
             accept="image/png, image/jpeg"
-            onChange = {(e) => {setFileName("Avatar Uploaded!")}}
+            onChange={(e) => {
+              setFileName("Avatar Uploaded!");
+            }}
           />
           <label htmlFor="file">
             <img src={Add} alt="" />
