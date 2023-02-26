@@ -11,8 +11,8 @@ body {
 }
 
 .formContainer {
-  // background-color: #a7bcff;
-  background: url("./img/loginBg.png");
+  background-color: #a7bcff;
+  // background: url("./img/loginBg.png");
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
@@ -32,7 +32,8 @@ body {
     .logo {
       color: #5d5b8d;
       font-weight: bold;
-      font-size: 2vw;
+      font-size: 2.2vw;
+      font-family: 'Tillana', cursive;
     }
 
     .title {
@@ -123,8 +124,9 @@ body {
         color: #ddddf7;
 
         .logo {
-          font-size: 20px;
+          font-size: 30px;
           font-weight: bold;
+          font-family: 'Tillana', cursive;
         }
 
         .user {
@@ -192,6 +194,10 @@ body {
             cursor: pointer;
             filter: brightness(0) invert(1);
           }
+        }
+
+        .user-list::-webkit-scrollbar{
+          display: none;
         }
 
         .user-list {
