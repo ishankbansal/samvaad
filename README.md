@@ -9,9 +9,7 @@ In the project directory, you can run:
 - `npm install`
 - `npm start`
 
-Build a realtime chat application with user authentication using Firebase SDK Authentication. To begin chating, user can either search for other registered users or select from contact list.
-
-You can find the link of samवाद [here](https://ishank-chatapp.netlify.app/login).
+Built a realtime chat application with user authentication using Firebase SDK Authentication. To begin chating, user can either search for other registered users or select from contact list.
 
 ## Demo Video :
 <br>
